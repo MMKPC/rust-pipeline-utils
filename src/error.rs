@@ -8,12 +8,14 @@ pub enum PipelineError {
     #[error("JSON error: {0}")]
     Json(#[from] serde_json::Error),
 
+    #[allow(dead_code)]
     #[error("Cycle detected in dependency graph")]
     CycleDetected,
 
     #[error("Invalid USD reference syntax in {file}: {detail}")]
     InvalidUsdRef { file: String, detail: String },
 
+    #[allow(dead_code)]
     #[error("{0}")]
     Other(String),
 }
